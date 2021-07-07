@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <title></title>
+
+    <link rel="manifest" href="manifest.json">
+
+    <!-- un-comment this code to enable service worker
+    <script>
+      if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('service-worker.js')
+          .then(() => console.log('service worker installed'))
+          .catch(err => console.log('Error', err));
+      }
+    </script>-->
+
+    <link href="lib/ionic/css/ionic.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+
+    <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
+    <link href="css/ionic.app.css" rel="stylesheet">
+    -->
+
+    <!-- ionic/angularjs js -->
+    <script src="lib/ionic/js/ionic.bundle.js"></script>
+
+    <!-- cordova script (this will be a 404 during development) -->
+    <script src="cordova.js"></script>
+
+    <!-- your app's js -->
+    <script src="js/app.js"></script>
+  </head>
+  <body ng-app="starter"></body>
+
+    <ion-pane>
+      <ion-header-bar class="bar-stable">
+        <h1 class="title">Ionic Blank Starter</h1>
+      </ion-header-bar>
+      <ion-content>
+        <button class="button button-full button-positive">
+          Full Width Block Button
+        </button>
+        
+        <button class="myClass" on-tap="show()">Open sheet</button>
+				<button class="myClass" on-tap="action()">Show backdrop</button>
+        
+        <button class="button button-large button-positive">
+          Large Button
+        </button>
+        <button class="button">
+          <i class="icon ion-loading-c"></i> Loading...
+        </button>
+        <div class="bar bar-header">
+          <button class="button button-icon icon ion-navicon"></button>
+          <div class="h1 title">Header Buttons</div>
+          <button class="button button-clear button-positive">Edit</button>
+        </div>
+        <div class="button-bar">
+          <a class="button">First</a>
+          <a class="button">Second</a>
+          <a class="button">Third</a>
+        </div>
+        <div class="list">
+
+          <div class="item item-divider">
+            Candy Bars
+          </div>
+        
+          <a class="item" href="#">
+            Butterfinger
+          </a>
+        
+          ...
+        
+        </div>
+        <div class="list">
+
+          <a class="item item-icon-left" href="#">
+            <i class="icon ion-email"></i>
+            Check mail
+          </a>
+        
+          <a class="item item-icon-left item-icon-right" href="#">
+            <i class="icon ion-chatbubble-working"></i>
+            Call Ma
+            <i class="icon ion-ios-telephone-outline"></i>
+          </a>
+        
+          <a class="item item-icon-left" href="#">
+            <i class="icon ion-mic-a"></i>
+            Record album
+            <span class="item-note">
+              Grammy
+            </span>
+          </a>
+        
+          <a class="item item-icon-left" href="#">
+            <i class="icon ion-person-stalker"></i>
+            Friends
+            <span class="badge badge-assertive">0</span>
+          </a>
+        
+        </div>
+        <button class="button icon-left ion-home">Home</button>
+        <button class="button button-small button-assertive">
+          Small Button
+        </button>
+        <div class="card">
+          <div class="item item-text-wrap">
+            This is a basic Card which contains an item that has wrapping text.
+          </div>
+        </div>
+        <div class="card">
+          <div class="item item-divider">
+            I'm a Head in a Card!
+          </div>
+          <div class="item item-text-wrap">
+            This is a official Card with some text.
+          </div>
+          <p>
+            if u want call any one , you can use my mobile phone.
+          </p>
+          <div class="list card">
+            <a href="#" class="item item-icon-left">
+              <i class="icon ion-home"> </i>
+              Enter Username
+            </a>
+          </div>
+          <div class="list">
+            <lable class="item item-input">
+              <span class="input-label">Username</span>
+              <input type="text">
+            </lable>
+            <lable class="item item-input">
+              <span class="input-label">Password</span>
+              <input type="text">
+            </lable>
+          </div>
+          <div class="list">
+            <label class="item item-input item--stacked-label">
+              <span class="input label">First Name</span>
+              <input type="text" placeholder="varsha">
+            </label>
+      </ion-content>
+    </ion-pane>
+  </body>
+</html>
