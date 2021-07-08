@@ -35,7 +35,7 @@
   <body ng-app="starter"></body>
 
     <ion-pane>
-      <ion-header-bar class="bar-stable">
+      <ion-header-bar class="bar-positive">
         <h1 class="title">Ionic Blank Starter</h1>
       </ion-header-bar>
       <ion-content>
@@ -72,8 +72,6 @@
             Butterfinger
           </a>
         
-          ...
-        
         </div>
         <div class="list">
 
@@ -104,7 +102,7 @@
         
         </div>
         <button class="button icon-left ion-home">Home</button>
-        <button class="button button-small button-assertive">
+        <button class="button button-small button-calm">
           Small Button
         </button>
         <div class="card">
@@ -143,7 +141,92 @@
               <span class="input label">First Name</span>
               <input type="text" placeholder="varsha">
             </label>
-      </ion-content>
+            <ul class="list">
+
+            <li class="item item-toggle">
+               HTML5
+               <label class="toggle toggle-assertive">
+                 <input type="checkbox">
+                 <div class="track">
+                   <div class="handle"></div>
+                 </div>
+               </label>
+            </li>
+          
+          </ul>
+           
+           <ion-list>
+
+            <ion-checkbox ng-model="filter.red">green</ion-checkbox>
+            <ion-checkbox ng-model="filter.yellow">Yellow</ion-checkbox>
+            <ion-checkbox ng-model="filter.pink">Pink</ion-checkbox>
+          <div class="list">
+            <label class="item item-input item-select">
+              <div class="input label">
+                Fighter
+              </div>
+              <select>
+                <option>green</option>
+                <option>yellow</option>
+                <option>pink</option>
+                <option>red</option>
+              </select>
+            </label>
+          </div>
+
+          </ion-list>
+          <div class="list-card">
+            <a href="#" class="item item-icon-left">
+              <i class="icon ion-home">
+
+              
+            </i>
+            </a>
+          </div>
+     <div class="bar bar-footer bar-balanced">
+       <h1 class="title">footer</h1>
+     </div>
+     <button class="button">
+      Default
+    </button>
+    
+    <button class="button button-light">
+      button-light
+    </button>
+    
+    <button class="button button-stable">
+      button-stable
+    </button>
+    
+    <button class="button button-positive">
+      button-positive
+    </button>
+    
+    <button class="button button-calm">
+      button-calm
+    </button>
+    
+    <button class="button button-balanced">
+      button-balanced
+    </button>
+    
+    <button class="button button-energized">
+      button-energized
+    </button>
+    
+    <button class="button button-assertive">
+      button-assertive
+    </button>
+    
+    <button class="button button-royal">
+      button-royal
+    </button>
+    
+    <button class="button button-dark">
+      button-dark
+    </button>
+    </ion-content>
     </ion-pane>
+ 
   </body>
 </html>
