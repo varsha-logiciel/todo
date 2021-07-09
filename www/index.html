@@ -18,6 +18,8 @@
 
     <link href="lib/ionic/css/ionic.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
+    <link href="css/pawan.css" rel="stylesheet">
+
 
     <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
     <link href="css/ionic.app.css" rel="stylesheet">
@@ -31,202 +33,66 @@
 
     <!-- your app's js -->
     <script src="js/app.js"></script>
+    <script src="js/controller.js"></script>
   </head>
-  <body ng-app="starter"></body>
+  <body ng-app="starter">
 
-    <ion-pane>
+    <ion-pane ng-controller="MainCtrl">
       <ion-header-bar class="bar-positive">
-        <h1 class="title">Ionic Blank Starter</h1>
+          <div class="title">ionic bar starter</div>
+        </div>
       </ion-header-bar>
       <ion-content>
-        <button class="button button-full button-positive">
-          Full Width Block Button
-        </button>
-        
-        <button class="myClass" on-tap="show()">Open sheet</button>
+				<button class="myClass" on-tap="show()">Open sheet</button>
 				<button class="myClass" on-tap="action()">Show backdrop</button>
-        
-        <button class="button button-large button-positive">
-          Large Button
-        </button>
-        <button class="button">
-          <i class="icon ion-loading-c"></i> Loading...
-        </button>
-        <div class="bar bar-header">
-          <button class="button button-icon icon ion-navicon"></button>
-          <div class="h1 title">Header Buttons</div>
-          <button class="button button-clear button-positive">Edit</button>
+          <ion-checkbox ng-model="isChecked">Checkbox Label</ion-checkbox>
+          <ion-radio ng-model="choice" ng-value="'A'">Red</ion-radio>
+          <ion-radio ng-model="choice" ng-value="'B'">Blue</ion-radio>
+          <ion-radio ng-model="choice" ng-value="'C'">Green</ion-radio>
+          <ion-toggle ng-model="GPS"  toggle-class="toggle-calm">GPS</ion-toggle>
+     
+      <button on-Hold="show()" class="button">Hold</button>
+      <button on-tap="show()" class="button">Tap</button>
+      <button on-double-tap="show()" class="button">Double tap</button>
+      <button on-touch="show()" class="button">Touch</button>
+      <button on-release="show()" class="button">Release</button>
+      <button on-drag="show()" class="button">Drag</button>
+      <button on-drag-up="show()" class="button">DragUp</button>
+      <button on-drag-right="show()" class="button">DragRight</button>
+      <button on-drag-down="show()" class="button">DragDown</button>
+      <button on-drag-left="show()" class="button">DragLeft</button>
+      <button on-swipe="show()" class="button">Swipe</button>
+      <button on-swipe-up="show()" class="button">SwipeUp</button>
+      <button on-swipe-right="show()" class="button">SwipeRight</button>
+      <button on-swipe-down="show()" class="button">SwipeDown</button>
+      <button on-swipe-left="show()" class="button">SwipeLeft</button>
+      <ion-header-bar align-title="left" class="bar-calm">
+        <div class="buttons">
+          <button class="button" ng-click="doSomething()">Left Button</button>
         </div>
-        <div class="button-bar">
-          <a class="button">First</a>
-          <a class="button">Second</a>
-          <a class="button">Third</a>
+        <h1 class="title">Mobile</h1>
+        <div class="buttons">
+          <button class="button">Right Button</button>
         </div>
-        <div class="list">
+      </ion-header-bar>
+      <ion-list>
+        <ion-item ng-repeat="item in items">
+          Hello,{{item}}!
+          </ion-item>
+        </ion-list>
 
-          <div class="item item-divider">
-            Candy Bars
-          </div>
-        
-          <a class="item" href="#">
-            Butterfinger
-          </a>
-        
+      </ion-list>
+      <ion-footer-bar align-title="left" class="bar-assertive">
+        <div class="buttons">
+          <button class="button">Left Button</button>
         </div>
-        <div class="list">
-
-          <a class="item item-icon-left" href="#">
-            <i class="icon ion-email"></i>
-            Check mail
-          </a>
-        
-          <a class="item item-icon-left item-icon-right" href="#">
-            <i class="icon ion-chatbubble-working"></i>
-            Call Ma
-            <i class="icon ion-ios-telephone-outline"></i>
-          </a>
-        
-          <a class="item item-icon-left" href="#">
-            <i class="icon ion-mic-a"></i>
-            Record album
-            <span class="item-note">
-              Grammy
-            </span>
-          </a>
-        
-          <a class="item item-icon-left" href="#">
-            <i class="icon ion-person-stalker"></i>
-            Friends
-            <span class="badge badge-assertive">0</span>
-          </a>
-        
+        <h1 class="title">Footer</h1>
+        <div class="buttons" ng-click="doSomething()">
+          <button class="button">Right Button</button>
         </div>
-        <button class="button icon-left ion-home">Home</button>
-        <button class="button button-small button-calm">
-          Small Button
-        </button>
-        <div class="card">
-          <div class="item item-text-wrap">
-            This is a basic Card which contains an item that has wrapping text.
-          </div>
-        </div>
-        <div class="card">
-          <div class="item item-divider">
-            I'm a Head in a Card!
-          </div>
-          <div class="item item-text-wrap">
-            This is a official Card with some text.
-          </div>
-          <p>
-            if u want call any one , you can use my mobile phone.
-          </p>
-          <div class="list card">
-            <a href="#" class="item item-icon-left">
-              <i class="icon ion-home"> </i>
-              Enter Username
-            </a>
-          </div>
-          <div class="list">
-            <lable class="item item-input">
-              <span class="input-label">Username</span>
-              <input type="text">
-            </lable>
-            <lable class="item item-input">
-              <span class="input-label">Password</span>
-              <input type="text">
-            </lable>
-          </div>
-          <div class="list">
-            <label class="item item-input item--stacked-label">
-              <span class="input label">First Name</span>
-              <input type="text" placeholder="varsha">
-            </label>
-            <ul class="list">
-
-            <li class="item item-toggle">
-               HTML5
-               <label class="toggle toggle-assertive">
-                 <input type="checkbox">
-                 <div class="track">
-                   <div class="handle"></div>
-                 </div>
-               </label>
-            </li>
-          
-          </ul>
-           
-           <ion-list>
-
-            <ion-checkbox ng-model="filter.red">green</ion-checkbox>
-            <ion-checkbox ng-model="filter.yellow">Yellow</ion-checkbox>
-            <ion-checkbox ng-model="filter.pink">Pink</ion-checkbox>
-          <div class="list">
-            <label class="item item-input item-select">
-              <div class="input label">
-                Fighter
-              </div>
-              <select>
-                <option>green</option>
-                <option>yellow</option>
-                <option>pink</option>
-                <option>red</option>
-              </select>
-            </label>
-          </div>
-
-          </ion-list>
-          <div class="list-card">
-            <a href="#" class="item item-icon-left">
-              <i class="icon ion-home">
-
-              
-            </i>
-            </a>
-          </div>
-     <div class="bar bar-footer bar-balanced">
-       <h1 class="title">footer</h1>
-     </div>
-     <button class="button">
-      Default
-    </button>
-    
-    <button class="button button-light">
-      button-light
-    </button>
-    
-    <button class="button button-stable">
-      button-stable
-    </button>
-    
-    <button class="button button-positive">
-      button-positive
-    </button>
-    
-    <button class="button button-calm">
-      button-calm
-    </button>
-    
-    <button class="button button-balanced">
-      button-balanced
-    </button>
-    
-    <button class="button button-energized">
-      button-energized
-    </button>
-    
-    <button class="button button-assertive">
-      button-assertive
-    </button>
-    
-    <button class="button button-royal">
-      button-royal
-    </button>
-    
-    <button class="button button-dark">
-      button-dark
-    </button>
-    </ion-content>
+      </ion-footer-bar>
+        </ion-content>
     </ion-pane>
- 
+
   </body>
 </html>

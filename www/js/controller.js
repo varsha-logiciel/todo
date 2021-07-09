@@ -21,7 +21,7 @@
 				});
 		 
 			};
-
+			
 			//Show a backdrop for one second
 			$scope.action = function() {
 				$ionicBackdrop.retain();
