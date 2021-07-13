@@ -45,12 +45,15 @@
       <ion-content>
 				<button class="myClass" on-tap="show()">Open sheet</button>
 				<button class="myClass" on-tap="action()">Show backdrop</button>
+        <button class="myClass" on-tap="showPopup()">Show Popup</button>
           <ion-checkbox ng-model="isChecked">Checkbox Label</ion-checkbox>
+          <ion-checkbox ng-model="isChecked">Toolbox Label</ion-checkbox>
           <ion-radio ng-model="choice" ng-value="'A'">Red</ion-radio>
           <ion-radio ng-model="choice" ng-value="'B'">Blue</ion-radio>
           <ion-radio ng-model="choice" ng-value="'C'">Green</ion-radio>
-          <ion-toggle ng-model="GPS"  toggle-class="toggle-calm">GPS</ion-toggle>
-     
+          <ion-toggle ng-model="GPS"  toggle-class="toggle-positive">GPS</ion-toggle>
+          <ion-toggle ng-model="airplaneMode" toggle-class="toggle-black">Airplane Mode</ion-toggle>
+          <ion-toggle ng-model="wireless" toggle-class="toggle-calm">wireless</ion-toggle>
       <button on-Hold="show()" class="button">Hold</button>
       <button on-tap="show()" class="button">Tap</button>
       <button on-double-tap="show()" class="button">Double tap</button>
@@ -66,31 +69,18 @@
       <button on-swipe-right="show()" class="button">SwipeRight</button>
       <button on-swipe-down="show()" class="button">SwipeDown</button>
       <button on-swipe-left="show()" class="button">SwipeLeft</button>
-      <ion-header-bar align-title="left" class="bar-calm">
-        <div class="buttons">
-          <button class="button" ng-click="doSomething()">Left Button</button>
-        </div>
-        <h1 class="title">Mobile</h1>
-        <div class="buttons">
-          <button class="button">Right Button</button>
-        </div>
-      </ion-header-bar>
-      <ion-list>
-        <ion-item ng-repeat="item in items">
-          Hello,{{item}}!
-          </ion-item>
-        </ion-list>
-
-      </ion-list>
       <ion-footer-bar align-title="left" class="bar-assertive">
         <div class="buttons">
           <button class="button">Left Button</button>
         </div>
-        <h1 class="title">Footer</h1>
+        <h1 class="title">Title!</h1>
         <div class="buttons" ng-click="doSomething()">
           <button class="button">Right Button</button>
         </div>
       </ion-footer-bar>
+        
+      
+      
         </ion-content>
     </ion-pane>
 
