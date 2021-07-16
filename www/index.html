@@ -18,7 +18,6 @@
 
     <link href="lib/ionic/css/ionic.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
-    <link href="css/pawan.css" rel="stylesheet">
 
 
     <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
@@ -39,50 +38,31 @@
 
     <ion-pane ng-controller="MainCtrl">
       <ion-header-bar class="bar-positive">
-          <div class="title">ionic bar starter</div>
-        </div>
-      </ion-header-bar>
-      <ion-content>
-				<button class="myClass" on-tap="show()">Open sheet</button>
-				<button class="myClass" on-tap="action()">Show backdrop</button>
-        <button class="myClass" on-tap="showPopup()">Show Popup</button>
-          <ion-checkbox ng-model="isChecked">Checkbox Label</ion-checkbox>
-          <ion-checkbox ng-model="isChecked">Toolbox Label</ion-checkbox>
-          <ion-radio ng-model="choice" ng-value="'A'">Red</ion-radio>
-          <ion-radio ng-model="choice" ng-value="'B'">Blue</ion-radio>
-          <ion-radio ng-model="choice" ng-value="'C'">Green</ion-radio>
-          <ion-toggle ng-model="GPS"  toggle-class="toggle-positive">GPS</ion-toggle>
-          <ion-toggle ng-model="airplaneMode" toggle-class="toggle-black">Airplane Mode</ion-toggle>
-          <ion-toggle ng-model="wireless" toggle-class="toggle-calm">wireless</ion-toggle>
-      <button on-Hold="show()" class="button">Hold</button>
-      <button on-tap="show()" class="button">Tap</button>
-      <button on-double-tap="show()" class="button">Double tap</button>
-      <button on-touch="show()" class="button">Touch</button>
-      <button on-release="show()" class="button">Release</button>
-      <button on-drag="show()" class="button">Drag</button>
-      <button on-drag-up="show()" class="button">DragUp</button>
-      <button on-drag-right="show()" class="button">DragRight</button>
-      <button on-drag-down="show()" class="button">DragDown</button>
-      <button on-drag-left="show()" class="button">DragLeft</button>
-      <button on-swipe="show()" class="button">Swipe</button>
-      <button on-swipe-up="show()" class="button">SwipeUp</button>
-      <button on-swipe-right="show()" class="button">SwipeRight</button>
-      <button on-swipe-down="show()" class="button">SwipeDown</button>
-      <button on-swipe-left="show()" class="button">SwipeLeft</button>
-      <ion-footer-bar align-title="left" class="bar-assertive">
-        <div class="buttons">
-          <button class="button">Left Button</button>
-        </div>
-        <h1 class="title">Title!</h1>
-        <div class="buttons" ng-click="doSomething()">
-          <button class="button">Right Button</button>
-        </div>
-      </ion-footer-bar>
-        
-      
-      
-        </ion-content>
+      <div class="title">Header</div>
+        </ion-header-bar>
+     <ion-content style="padding-top:50px">
+      <ion-card ng-show="dataToShow.firstname">
+        Firstname: {{dataToShow.firstname}}
+      </ion-card>
+      <button ng-click="removedata()" ng-if="dataToShow.firstname">Remove</button>
+<ion-list ng-repeat="item in list">
+  <ion-item>
+    {{item.firstname}}
+  <button ng-click="showData(item)">Show data</button>
+  </ion-item>
+</ion-list>        
+</ion-content>
     </ion-pane>
+    
+    <ion-footer-bar align-title="left" class="bar-royal">
+      <div class="buttons">
+        <button class="button">Left Button</button>
+      </div>
+      <h1 class="title">Title!</h1>
+      <div class="buttons" ng-click="doSomething()">
+        <button class="button">Right Button</button>
+      </div>
+    </ion-footer-bar>
 
   </body>
 </html>
