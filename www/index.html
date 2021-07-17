@@ -45,13 +45,21 @@
         Firstname: {{dataToShow.firstname}}
       </ion-card>
       <button ng-click="removedata()" ng-if="dataToShow.firstname">Remove</button>
-<ion-list ng-repeat="item in list">
-  <ion-item>
-    {{item.firstname}}
-  <button ng-click="showData(item)">Show data</button>
-  </ion-item>
-</ion-list>        
-</ion-content>
+      
+     <ion-list ng-repeat="item in list">
+      <ion-item>
+         {{item.firstname}}
+          <button ng-click="showData(item)">Show data</button>
+          <button ng-click="removedata()">delete</button>
+      </ion-item>
+  
+     </ion-list> 
+     <ion-item>
+     firstname : <input ng-model="dataToAdd.firstname" />
+     <button ng-click="addToList()">Add</button>
+    </ion-item>
+  </ion-content>
+
     </ion-pane>
     
     <ion-footer-bar align-title="left" class="bar-royal">
