@@ -50,7 +50,9 @@
       <ion-item>
          {{item.firstname}}
           <button ng-click="showData(item)">Show data</button>
-          <button ng-click="removedata()">delete</button>
+          
+          <button class='btn btn-danger' ng-click="deleteRow($index)">Delete</button>
+          <ion-list>
       </ion-item>
   
      </ion-list> 
