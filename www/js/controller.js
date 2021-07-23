@@ -1,15 +1,12 @@
 (function(){
 	'use strict';	
-		var DemoCtrl = function($scope, $ionicActionSheet, $ionicBackdrop, $timeout, $ionicPopup, $ionicPopover, $ionicModal) {
+		var DemoCtrl = function($scope, apiService,api) {
 			$scope.dataToShow = {};
-			
 			$scope.dataToAdd = {
 				
 				firstname: ''
 			};
-			
-	
-			    $scope.list = [{
+			$scope.list = [{
 			
 				    firstname: 'Riya'
 			},{
@@ -21,8 +18,7 @@
 	// using filter for currency
 		$scope.price = 556;
 		
-		
-	//using user defined filter (show value divided by 2)
+//using user defined filter (show value divided by 2)
 		$scope.student1list =[
 			{name:'Raman',value:1},
 			{name:'Gourav',value:2},
@@ -62,14 +58,26 @@
 					console.log($scope.dataToAdd)
 				}	
 				// delete function this remove the selected table row
-   $scope.deleteRow= function (i) {
-	$scope.list.splice(i, 1);
-	firstname: $scope.dataToAdd.firstname
-}
-	
-	}
+              $scope.deleteRow= function (i) {
+	          $scope.list.splice(i, 1);
+	          firstname: $scope.dataToAdd.firstname
+              }
 
-		DemoCtrl.$inject = ['$scope', '$ionicActionSheet', '$ionicBackdrop', '$timeout','$ionicPopup', '$ionicPopover', '$ionicModal'];
+
+             //array value
+            $scope.counts = [255, 251, 200];
+                  $scope.data = []
+            apiService.getDataFromApi().then(function(response){
+	      if(response) {
+		   $scope.data = response;
+	       }
+           }, function(err){
+	      console.log(err)
+          })
+
+		}
+
+		DemoCtrl.$inject = ['$scope','apiService'];
 		angular
 			.module('starter')
 			.controller('MainCtrl',DemoCtrl);

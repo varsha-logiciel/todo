@@ -34,6 +34,7 @@
     <script src="js/app.js"></script>
     <script src="js/controller.js"></script>
     <script src="js/filter.js"></script>
+    <script src="js/service.js"></script>
   </head>
   <body ng-app="starter">
 
@@ -84,12 +85,23 @@
         </li>
         </ul>
     </div>
+<!--using service to show to user service difined-->
+<h3>{{hex}}</h3>
+<!--using service to show array defined-->
+<ion-list>
+  <ion-item ng-repeat="item in data">
+    {{item.title}}
+  </ion-item>
+</ion-list>
 
-
-  </ion-content>
-
-    </ion-pane>
-    
+<ion-item>
+  <my-element data="data" on-update="selected"></my-element>
+  <div my-element></div>
+  <!-- directive: my-element -->
+  <span class="my-element"></span>
+</ion-item>
+</ion-content>
+   </ion-pane>
     <ion-footer-bar align-title="left" class="bar-royal">
       <div class="buttons">
         <button class="button">Left Button</button>
