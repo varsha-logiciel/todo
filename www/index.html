@@ -91,15 +91,26 @@
 <ion-list>
   <ion-item ng-repeat="item in data">
     {{item.title}}
+    <button ng-click="deletedata(item.id,$index)">Delete</button>
   </ion-item>
 </ion-list>
+<div>
+Title: <input ng-model="title" /><br/><br/>
+Body: <input ng-model="body" /><br/><br/>
+Id: <input ng-model="id" /><br/><br/>
+<button on-tap="postData1FromApi(title,body,id)">Send</button><br/><br/>
 
-<ion-item>
-  <my-element data="data" on-update="selected"></my-element>
-  <div my-element></div>
-  <!-- directive: my-element -->
-  <span class="my-element"></span>
-</ion-item>
+</div>
+
+<p>title: {{title}}</p>
+<p>body: {{body}}</p>
+<p>id: {{id}}</p>
+<div>
+  Hitting API  Delete request
+  <ion-item>
+    {{item.id}}
+  </ion-item>
+</div>
 </ion-content>
    </ion-pane>
     <ion-footer-bar align-title="left" class="bar-royal">

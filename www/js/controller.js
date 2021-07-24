@@ -1,6 +1,6 @@
 (function(){
 	'use strict';	
-		var DemoCtrl = function($scope, apiService,api) {
+		var DemoCtrl = function($scope, apiService) {
 			$scope.dataToShow = {};
 			$scope.dataToAdd = {
 				
@@ -61,24 +61,34 @@
               $scope.deleteRow= function (i) {
 	          $scope.list.splice(i, 1);
 	          firstname: $scope.dataToAdd.firstname
-              }
-
-
-             //array value
-            $scope.counts = [255, 251, 200];
+           }
+               //array value
+               $scope.counts = [255, 251, 200];
                   $scope.data = []
-            apiService.getDataFromApi().then(function(response){
-	      if(response) {
-		   $scope.data = response;
+               apiService.getDataFromApi().then(function(response){
+	           if(response) {
+		        $scope.data = response;
 	       }
-           }, function(err){
-	      console.log(err)
-          })
-
-		}
+              }, function(err){
+	             console.log(err)
+           })
+		  // post data
+		  $scope.postData1FromApi=function(title,body,id){
+					 apiService.postDataFromApi(title,body,id).then(function(response){
+						$scope.data.push(response)
+						
+			 })
+			 //Hitting $https  Delete request
+			$scope.deletedata = function (item,$index){
+				apiService.deleteDataFromApi(item).then(function(response){
+					$scope.data.splice($index)
+				})
+			}		 
+				 }
+    }
 
 		DemoCtrl.$inject = ['$scope','apiService'];
 		angular
 			.module('starter')
 			.controller('MainCtrl',DemoCtrl);
-	})();
+})();
