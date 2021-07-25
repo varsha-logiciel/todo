@@ -92,7 +92,8 @@ angular
 			deferredAbort = request = promise = null;
 		});
 		return promise;
-	}
+	}	 
+			 
 
 })
 

@@ -38,44 +38,40 @@
   </head>
   <body ng-app="starter">
 
-    <ion-pane ng-controller="MainCtrl">
-      <ion-header-bar class="bar-positive">
-      <div class="title">Header</div>
-        </ion-header-bar>
-     <ion-content style="padding-top:50px">
-      <ion-card ng-show="dataToShow.firstname">
-        Firstname: {{dataToShow.firstname}}
-      </ion-card>
-      <button ng-click="removedata()" ng-if="dataToShow.firstname">Remove</button>
-      
-     <ion-list ng-repeat="item in list">
-      <ion-item>
-         {{item.firstname | uppercase}}
-          <button ng-click="showData(item)">Show data</button>
-          
-          <button class='btn btn-danger' ng-click="deleteRow($index)">Delete</button>
-          <ion-list>
-      </ion-item>
-  
-     </ion-list> 
+  <ion-pane ng-controller="MainCtrl">
+    <ion-header-bar class="bar-positive">
+         <div class="title">Header</div>
+    </ion-header-bar>
+   <ion-content style="padding-top:50px">
+         <ion-card ng-show="dataToShow.firstname">
+               Firstname: {{dataToShow.firstname}}
+         </ion-card>
+          <button ng-click="removedata()" ng-if="dataToShow.firstname">Remove</button>
+          <ion-list ng-repeat="item in list">
+             <ion-item>
+                 {{item.firstname | uppercase}}
+                  <button ng-click="showData(item)">Show data</button>
+                 <button class='btn btn-danger' ng-click="deleteRow($index)">Delete</button>
+             </ion-item>
+          </ion-list> 
      <ion-item>
-     firstname : <input ng-model="dataToAdd.firstname" />
-     <button ng-click="addToList()">Add</button>
+         firstname : <input ng-model="dataToAdd.firstname" />
+         <button ng-click="addToList()">Add</button>
     </ion-item>
      <!--Using Filter for search letter --> 
-     <div>
-      <p>Type a letter in the input field:</p>
-      <input type="text" placeholder="Type Here" ng-model="test">
+    <div>
+          <p>Type a letter in the input field:</p>
+           <input type="text" placeholder="Type Here" ng-model="test">
       <ul>
         <li ng-repeat="x in names1 | filter:test">
-        {{ x }}
-         </li>
+           {{ x }}
+        </li>
       </ul>
     </div>
-     <!--Using filter for currency-->
-    <div>
-      <h1>Price: {{ price | currency }}</h1> 
-    </div>
+       <!--Using filter for currency-->
+      <div>
+         <h1>Price: {{ price | currency }}</h1> 
+      </div>
     
     <!--Using filter to show value divided by 2 only-->
     <div>
@@ -83,45 +79,42 @@
         <li ng-repeat="x in student1list | myFormat2 : 'checked'">
             {{x.name}}
         </li>
-        </ul>
+      </ul>
     </div>
-<!--using service to show to user service difined-->
-<h3>{{hex}}</h3>
-<!--using service to show array defined-->
-<ion-list>
-  <ion-item ng-repeat="item in data">
-    {{item.title}}
-    <button ng-click="deletedata(item.id,$index)">Delete</button>
-  </ion-item>
-</ion-list>
-<div>
-Title: <input ng-model="title" /><br/><br/>
-Body: <input ng-model="body" /><br/><br/>
-Id: <input ng-model="id" /><br/><br/>
-<button on-tap="postData1FromApi(title,body,id)">Send</button><br/><br/>
-
-</div>
-
-<p>title: {{title}}</p>
-<p>body: {{body}}</p>
-<p>id: {{id}}</p>
-<div>
-  Hitting API  Delete request
-  <ion-item>
-    {{item.id}}
-  </ion-item>
-</div>
-</ion-content>
-   </ion-pane>
+        <!--using service to show to user service difined-->
+           <h3>{{hex}}</h3>
+        <!--using service to show array defined-->
+   <ion-list>
+      <ion-item ng-repeat="item in data">
+           {{item.title}}
+           <button ng-click="deletedata(item.id,$index)">Delete</button>
+           <button ng-click="putData(item)">Edit</button>
+      </ion-item>
+   </ion-list>
+    <div>
+           Title: <input ng-model="title" /><br/><br/>
+           Body: <input ng-model="body" /><br/><br/>
+           Id: <input ng-model="id" /><br/><br/>
+      <button on-tap="postData1FromApi(title,body,id)">Send</button><br/><br/>
+    </div>
+       <p>title: {{title}}</p>
+       <p>body: {{body}}</p>
+       <p>id: {{id}}</p>
+      <div>
+         <ion-item>
+           {{item.id}}
+         </ion-item>
+      </div>
+    </ion-content>
+ </ion-pane>
     <ion-footer-bar align-title="left" class="bar-royal">
-      <div class="buttons">
-        <button class="button">Left Button</button>
-      </div>
-      <h1 class="title">Title!</h1>
-      <div class="buttons" ng-click="doSomething()">
-        <button class="button">Right Button</button>
-      </div>
+       <div class="buttons">
+           <button class="button">Left Button</button>
+       </div>
+           <h1 class="title">Title!</h1>
+          <div class="buttons" ng-click="doSomething()">
+              <button class="button">Right Button</button>
+          </div>
     </ion-footer-bar>
-
-  </body>
+ </body>
 </html>

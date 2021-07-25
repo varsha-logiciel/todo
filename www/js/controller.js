@@ -7,13 +7,11 @@
 				firstname: ''
 			};
 			$scope.list = [{
-			
-				    firstname: 'Riya'
+			    firstname: 'Riya'
 			},{
-					firstname: 'varsha'
+				firstname: 'varsha'
 			},{
-			
-						firstname: 'Garry'
+			    firstname: 'Garry'
 			}]
 	// using filter for currency
 		$scope.price = 556;
@@ -46,22 +44,20 @@
 				$scope.dataToShow = {};
 			}
 				$scope.showData = function(item) {
-					
 					$scope.dataToShow = item;
-					
 				}
 				$scope.addToList = function() {
 					$scope.list.push({
 						firstname: $scope.dataToAdd.firstname
-					})
+				})
 					$scope.dataToAdd.firstname = '';
 					console.log($scope.dataToAdd)
 				}	
 				// delete function this remove the selected table row
-              $scope.deleteRow= function (i) {
-	          $scope.list.splice(i, 1);
-	          firstname: $scope.dataToAdd.firstname
-           }
+                      $scope.deleteRow= function (i) {
+	                     $scope.list.splice(i, 1);
+	                     firstname: $scope.dataToAdd.firstname
+                      }
                //array value
                $scope.counts = [255, 251, 200];
                   $scope.data = []
@@ -83,8 +79,12 @@
 				apiService.deleteDataFromApi(item).then(function(response){
 					$scope.data.splice($index)
 				})
-			}		 
-				 }
+			}
+			$scope.putData = function(userId,body,title) {
+				
+			};
+		}
+		
     }
 
 		DemoCtrl.$inject = ['$scope','apiService'];
