@@ -1,94 +1,87 @@
 (function(){
 	'use strict';	
-		var DemoCtrl = function($scope, apiService) {
-			$scope.dataToShow = {};
-			$scope.dataToAdd = {
-				
-				firstname: ''
-			};
-			$scope.list = [{
-			    firstname: 'Riya'
-			},{
-				firstname: 'varsha'
-			},{
-			    firstname: 'Garry'
-			}]
-	// using filter for currency
-		$scope.price = 556;
-		
-//using user defined filter (show value divided by 2)
-		$scope.student1list =[
-			{name:'Raman',value:1},
-			{name:'Gourav',value:2},
-			{name:'Rohit',value:3},
-			{name:'Nitin',value:4},
-			{name:'Dilpreet',value:5},
-			{name:'Garry',value:6},
-			{name:'Varsha',value:7},
-			{name:'Sourav',value:8},
-		]
-	//using filter for search letter
-		$scope.names1 = [
-			'Ram',
-			'Rohit',
-			'Rahul',
-			'Garry',
-			'Gourav',
-			'Pooja',
-			'Riya',
-			'Moni',
-			'Priyanka',
-		]
-			
-			$scope.removedata = function() {
+		var DemoCtrl = function($scope, $ionicPopup) {
+				$scope.dataList = [
+				{
+					Id:'1',
+					firstName: 'Mayank',
+					dob: '12-12-1990',
+					lastName: 'Kumar',
+					salary: '250000',
+					age: '31',
+				},
+				{
+					Id:'2',
+					firstName: 'Tajinder',
+					dob: '12-12-1993',
+					lastName: 'Singh',
+					salary: '2500000',
+					age: '28',
+				},
+				{
+					Id:'3',
+					firstName: 'Varsha',
+					dob: '12-12-1995',
+					lastName: 'Panday',
+					salary: '2500',
+					age: '20',
+				},
+				{
+					Id:'4',
+					firstName: 'Pawan',
+					dob: '07-01-1995',
+					lastName: 'Arora',
+					salary: '550000',
+					age: '25',
+				},
+				{
+					Id:'5',
+					firstName: 'Anuj',
+					dob: '12-11-1997',
+					lastName: 'Singh',
+					salary: '2500000',
+					age: '29',
+				},
+                
+			]
+			$scope.showPopup = function() {
 				$scope.dataToShow = {};
-			}
-				$scope.showData = function(item) {
-					$scope.dataToShow = item;
-				}
-				$scope.addToList = function() {
-					$scope.list.push({
-						firstname: $scope.dataToAdd.firstname
-				})
-					$scope.dataToAdd.firstname = '';
-					console.log($scope.dataToAdd)
-				}	
-				// delete function this remove the selected table row
-                      $scope.deleteRow= function (i) {
-	                     $scope.list.splice(i, 1);
-	                     firstname: $scope.dataToAdd.firstname
-                      }
-               //array value
-               $scope.counts = [255, 251, 200];
-                  $scope.data = []
-               apiService.getDataFromApi().then(function(response){
-	           if(response) {
-		        $scope.data = response;
-	       }
-              }, function(err){
-	             console.log(err)
-           })
-		  // post data
-		  $scope.postData1FromApi=function(title,body,id){
-					 apiService.postDataFromApi(title,body,id).then(function(response){
-						$scope.data.push(response)
-						
-			 })
-			 //Hitting $https  Delete request
-			$scope.deletedata = function (item,$index){
-				apiService.deleteDataFromApi(item).then(function(response){
-					$scope.data.splice($index)
-				})
-			}
-			$scope.putData = function(userId,body,title) {
-				
-			};
-		}
-		
-    }
+			
+				// An elaborate, custom popup
+				var myPopup = $ionicPopup.show({
+					template: '<input type="password" ng-model="data.wifi">',
+					title: 'Enter Wi-Fi Password',
+					subTitle: 'Please use normal things',
+					scope: $scope,
+					buttons: [
+						{ text: 'Cancel' },
+						{
+							text: '<b>Save</b>',
+							type: 'button-positive',
+							onTap: function(e) {
+								if (!$scope.data.wifi) {
+								//don't allow the user to close unless he enters wifi password
+									e.preventDefault();
+								} else {
+									return $scope.data.wifi;
+								}
+							}
+						}
+					]
+				});
+				$scope.dataToShow='showDataInPopup'
+				$scope.showDataInPopup = function(){
+				console.log('Tapped!', res);
+				};
+			
+				$timeout(function() {
+					myPopup.close(); //close the popup after 3 seconds for some reason
+				}, 3000);
+		   };
+	}
 
-		DemoCtrl.$inject = ['$scope','apiService'];
-		angular
-			.module('starter')
-			.controller('MainCtrl',DemoCtrl);
-})();
+			DemoCtrl.$inject = ['$scope', '$ionicPopup']
+			angular
+				.module('starter')
+				.controller('MainCtrl',DemoCtrl);
+})(); 
