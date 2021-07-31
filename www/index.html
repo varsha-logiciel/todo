@@ -52,8 +52,8 @@
        <body>
         <div ng-app="starter" ng-controller="MainCtrl" class="border_div">
         <input  ng-model="dataToShow" />
-        <button class="myClass" on-tap="showDataInPopup('$dataList')">Show</button>
-          <table border:1 width="100%">
+        <button class="myClass" on-tap="showPopup()">Show Popup</button>
+          <table>
           <tr>
             <th>ID</th>
             <th>Firstname</th>
@@ -70,6 +70,8 @@
            <td>{{x.salary}}</td>
            <td>{{x.dob}}</td>
         </tr>
+        </table>
     </style>
  </body>
-</html>
+ </head>
+ </html>

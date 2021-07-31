@@ -44,41 +44,41 @@
 				},
                 
 			]
-			$scope.showPopup = function() {
-				$scope.dataToShow = {};
-			
+			 
+			$scope.myFunction = function() {
+				var popup = document.ShowDataInPopup("myPopup");
+				popup.dataList.toggle("show");
+			  }
+			  $scope.showPopup = function() {
+				$scope.dataToShow = {$ionicPopup};
+			  
 				// An elaborate, custom popup
-				var myPopup = $ionicPopup.show({
-					template: '<input type="password" ng-model="data.wifi">',
-					title: 'Enter Wi-Fi Password',
-					subTitle: 'Please use normal things',
-					scope: $scope,
-					buttons: [
-						{ text: 'Cancel' },
-						{
-							text: '<b>Save</b>',
-							type: 'button-positive',
-							onTap: function(e) {
-								if (!$scope.data.wifi) {
-								//don't allow the user to close unless he enters wifi password
-									e.preventDefault();
-								} else {
-									return $scope.data.wifi;
-								}
-							}
+				$ionicPopup .showPopup = $ionicPopup.show({
+					title:"userDetail",
+					template:"userId",
+				  scope: $scope,
+				  buttons: [
+					{ text: 'Cancel' },
+					{
+					  text: '<b>Save</b>',
+					  type: 'button-positive',
+					  onTap: function(dataList) {
+						if (!$scope) {
+						//don't allow the user to close unless he enters wifi password
+						dataList.preventDefault();
+						} else {
+						  return $scope.userId;
 						}
-					]
+					  }
+					}
+				  ]
 				});
-				$scope.dataToShow='showDataInPopup'
+				$scope.dataToShow=''
 				$scope.showDataInPopup = function(){
 				console.log('Tapped!', res);
-				};
-			
-				$timeout(function() {
-					myPopup.close(); //close the popup after 3 seconds for some reason
-				}, 3000);
-		   };
-	}
+				}
+			   }
+        }
 
 			DemoCtrl.$inject = ['$scope', '$ionicPopup']
 			angular
